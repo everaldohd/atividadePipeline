@@ -3,8 +3,7 @@ Pipeline - Etapa 2: Validar Dados com Pandera
 """
 
 import pandas as pd
-import pandera as pa
-from pandera import Column, Check, DataFrameSchema
+import pandera.pandas as pa
 
 
 def criar_schema():
@@ -12,54 +11,23 @@ def criar_schema():
     Cria o schema de validação para o dataset de clientes.
     
     Returns:
-        DataFrameSchema do Pandera
+        pa.DataFrameSchema do Pandera
     """
     
-    schema = DataFrameSchema({
-        
-        # TODO 1: Validar cliente_id
-        # - Tipo: int
-        # - Não pode ser nulo (nullable=False)
-        # - Deve ser único (unique=True)
-        # Dica: "cliente_id": Column(int, nullable=False, unique=True),
-        
-        "cliente_id": None,  # Substitua None pelo código correto
-        
-        
-        # TODO 2: Validar idade
-        # - Tipo: int
-        # - Valores entre 18 e 80
-        # Dica: Column(int, Check.in_range(18, 80)),
-        
-        "idade": None,  # Substitua None pelo código correto
-        
-        
-        # TODO 3: Validar renda_mensal
-        # - Tipo: float
-        # - Valores entre 1000 e 50000
-        
-        "renda_mensal": None,  # Substitua None pelo código correto
-        
+    schema = pa.DataFrameSchema({
+
+        "cliente_id": pa.Column(int, nullable=False, unique=True),
+        "idade": pa.Column(int, pa.Check.in_range(18, 80)),
+        "renda_mensal": pa.Column(float, pa.Check.in_range(1000, 50000)),
         
         # Estas validações já estão prontas como exemplo:
-        "tempo_conta_meses": Column(int, Check.in_range(1, 240)),
-        "num_produtos": Column(int, Check.in_range(1, 5)),
-        "tem_cartao_credito": Column(int, Check.isin([0, 1])),
+        "tempo_conta_meses": pa.Column(int, pa.Check.in_range(1, 240)),
+        "num_produtos": pa.Column(int, pa.Check.in_range(1, 5)),
+        "tem_cartao_credito": pa.Column(int, pa.Check.isin([0, 1])),
+
+        "score_credito": pa.Column(float, pa.Check.in_range(300, 850)),
         
-        
-        # TODO 4: Validar score_credito
-        # - Tipo: float
-        # - Valores entre 300 e 850
-        
-        "score_credito": None,  # Substitua None pelo código correto
-        
-        
-        # TODO 5: Validar respondeu_campanha (target)
-        # - Tipo: int
-        # - Valores permitidos: 0 ou 1
-        # Dica: Column(int, Check.isin([0, 1])),
-        
-        "respondeu_campanha": None,  # Substitua None pelo código correto
+        "respondeu_campanha": pa.Column(int, pa.Check.isin([0, 1])),
         
     })
     
