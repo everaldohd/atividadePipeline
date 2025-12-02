@@ -15,10 +15,8 @@ def carregar_dados(caminho_arquivo):
     Returns:
         DataFrame com os dados
     """
-    # TODO 1: Use pd.read_csv() para carregar o arquivo
-    # Dica: df = pd.read_csv(caminho_arquivo)
-    
-    df = pd.read_csv(caminho_arquivo)
+
+    df = pd.read_csv(caminho_arquivo)    # Use pd.read_csv() para carregar o arquivo
     
     return df
 
@@ -49,8 +47,8 @@ def verificar_target(df, coluna_target='respondeu_campanha'):
     """
     print("\nDISTRIBUIÇÃO DO TARGET")
     print("-" * 30)
-    print(df[coluna_target].value_counts())                     # TODO 5: Mostre a contagem de cada valor do target
-    print(df[coluna_target].value_counts(normalize=True))       # TODO 6: Mostre a proporção (percentual) de cada valor
+    print(df[coluna_target].value_counts())                     # Mostre a contagem de cada valor do target
+    print(df[coluna_target].value_counts(normalize=True))       # Mostre a proporção (percentual) de cada valor
     print("-" * 30)
     
 
