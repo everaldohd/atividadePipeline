@@ -151,7 +151,8 @@ A validação é essencial para garantir que o modelo não seja treinado com dad
 ### 4.1 Liste os commits que vocês fizeram (copie do git log):
 <!-- Execute: git log --oneline e cole aqui -->
 ```
-7ff2201 (HEAD -> master, origin/master) Implementa treinamento com train-test split
+5166b52 (HEAD -> master, origin/master) Completa pipeline e documenta resultados
+7ff2201 Implementa treinamento com train-test split
 7b7428b Adiciona validação Pandera
 b70d6e0 Implementa carregamento de dados
 578c681 Commit inicial do projeto
