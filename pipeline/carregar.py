@@ -18,7 +18,7 @@ def carregar_dados(caminho_arquivo):
     # TODO 1: Use pd.read_csv() para carregar o arquivo
     # Dica: df = pd.read_csv(caminho_arquivo)
     
-    df = None  # Substitua None pelo código correto
+    df = pd.read_csv(caminho_arquivo)
     
     return df
 
@@ -33,19 +33,9 @@ def explorar_dados(df):
     print("=" * 50)
     print("EXPLORAÇÃO DOS DADOS")
     print("=" * 50)
-    
-    # TODO 2: Mostre o shape do DataFrame (linhas, colunas)
-    # Dica: print(f"Shape: {df.shape}")
-    
-    
-    # TODO 3: Mostre os tipos de cada coluna
-    # Dica: print(df.dtypes)
-    
-    
-    # TODO 4: Mostre as 5 primeiras linhas
-    # Dica: print(df.head())
-    
-    
+    print(f"Shape: {df.shape}")     # Mostre o shape do DataFrame (linhas, colunas)
+    print(df.dtypes)                # Mostre os tipos de cada coluna
+    print(df.head())                # Mostre as 5 primeiras linhas
     print("=" * 50)
 
 
@@ -59,16 +49,10 @@ def verificar_target(df, coluna_target='respondeu_campanha'):
     """
     print("\nDISTRIBUIÇÃO DO TARGET")
     print("-" * 30)
-    
-    # TODO 5: Mostre a contagem de cada valor do target
-    # Dica: print(df[coluna_target].value_counts())
-    
-    
-    # TODO 6: Mostre a proporção (percentual) de cada valor
-    # Dica: print(df[coluna_target].value_counts(normalize=True))
-    
-    
+    print(df[coluna_target].value_counts())                     # TODO 5: Mostre a contagem de cada valor do target
+    print(df[coluna_target].value_counts(normalize=True))       # TODO 6: Mostre a proporção (percentual) de cada valor
     print("-" * 30)
+    
 
 
 # Teste local (executar este arquivo diretamente)
